@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { 
+import { //added
   Route,
   createBrowserRouter,
   createRoutesFromElements,
@@ -15,7 +15,7 @@ import HomePage from './pages/HomePage';
 import MainLayout from './layouts/MainLayout';
 
 
-const router = createBrowserRouter(
+const router = createBrowserRouter(//added
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
 
