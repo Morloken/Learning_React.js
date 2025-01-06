@@ -11,15 +11,16 @@ import { //added
 // import HomeCards from './components/HomeCards';
 // import JonListings from './components/JobListings';
 // import ViewAllJobs from './components/ViewAllJobs';
-import HomePage from './pages/HomePage';
 import MainLayout from './layouts/MainLayout';
-
+import HomePage from './pages/HomePage';
+import JobsPage from './pages/JobsPage';
 
 const router = createBrowserRouter(//added
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
 
       <Route index element ={<HomePage/>} />
+      <Route path='/jobs' element ={<JobsPage/>} />
 
     </Route>
     
