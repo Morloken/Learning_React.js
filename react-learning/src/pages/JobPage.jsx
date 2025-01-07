@@ -38,7 +38,7 @@ const JobPage = () => {
         <h1>{job.title}</h1>
        
     )
-}
+}//...
 
 const jobLoader = async({params}) => {
     const res = await fetch(`/api/jobs/${params.id}`);
