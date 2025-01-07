@@ -5,7 +5,7 @@ import { useParams, useLoaderData } from 'react-router-dom';
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 // import Spinner from "../components/Spinner";
-
+//...
 const JobPage = () => {
 
     const { id } = useParams();
