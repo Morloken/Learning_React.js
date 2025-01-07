@@ -1,9 +1,38 @@
 import React from 'react'
-import jobs from '../jobs.json';
+
+import { useState, useEffect } from 'react'; 
+
+
+// import jobs from '../jobs.json';
 import JobListing from './JobListing';
+
+
 const JobListings = ({isHome = false }) => {
     // console.log(jobs);
-    const JobListings = isHome ? jobs.slice(0, 3) : jobs;
+    // const JobListings = isHome ? jobs.slice(0, 3) : jobs;
+    const [jobs, setJobs] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {//async wont work here. so we need to create and then call a fucntion to fetch
+      const fetchJobs = async () => {
+
+
+        try {
+          const res = await fetch('http://localhost:8000/jobs');
+          const data = await res.json();
+          setJobs(data);
+
+        } catch (error) {
+          console.log('Error fetching data:', error);
+
+        }finally{
+          setLoading(false);
+        }
+       
+      }
+
+      fetchJobs();
+    }, []);
 
   return (
     <>
@@ -13,7 +42,7 @@ const JobListings = ({isHome = false }) => {
           {isHome ? 'Recent Jobs' : 'Browse Jobs'}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {JobListings.map((job) => (
+            {jobs.map((job) => (
               <JobListing  job={job} key={job.id}/>
                
             
