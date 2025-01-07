@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 import { //added
   Route,
   createBrowserRouter,
@@ -15,6 +16,7 @@ import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
 import JobsPage from './pages/JobsPage';
 import NotFoundPage from './pages/NotFoundPage' ;
+import JobPage, { jobLoader } from './pages/JobPage';
 
 const router = createBrowserRouter(//added
   createRoutesFromElements(
@@ -22,6 +24,8 @@ const router = createBrowserRouter(//added
 
       <Route index element ={<HomePage/>} />
       <Route path='/jobs' element ={<JobsPage/>} />
+      <Route path='/jobs/:id' element ={<JobPage/>} loader ={jobLoader} />                  {/*  :id is a dynamic parameter  */ }
+      
       <Route path='*' element ={<NotFoundPage/>} />
 
     </Route>
